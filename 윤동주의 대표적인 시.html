@@ -1,61 +1,83 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>시인 윤동주의 대표적인 시</title>
 
-<link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumBarunGothic.css" rel="stylesheet">
 
 <style>
+* { box-sizing: border-box; }
 
-/* 전체 배경 */
 body {
-    background-color: #E8DDCB;
+    margin: 0;
+    background: #E8DDCB;
     color: #242424;
     font-family: 'Nanum Myeongjo', serif;
-    margin: 0;
-    padding: 0;
 }
 
-/* 전체 페이지 */
 .page-wrap {
     width: 85%;
     max-width: 1100px;
     margin: 40px auto;
-    background-color: #F5F1E8;
     padding: 35px;
+    background: #F5F1E8;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    box-sizing: border-box;
 }
 
-/* 기존 상단 카테고리 */
+/* 상단 카테고리 */
 .navigation {
-    text-align: center;
-    padding: 20px;
-    background-color: #E8DDCB;
-    border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    width: 100%;
+    padding: 15px 8px;
     margin-bottom: 35px;
-    line-height: 2;
+    background: #E8DDCB;
+    border-radius: 6px;
 }
 
 .navigation a {
-    color: #242424;
-    font-size: 16px;
-    font-weight: bold;
+    min-width: 0;
+    padding: 12px 5px;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'NanumBarunGothic', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #603B2B;
+    background: transparent;
     text-decoration: none;
-    margin: 0 8px;
+    border-right: 1px solid #B49D8B;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.2s ease;
+}
+
+.navigation a:last-child {
+    border-right: none;
 }
 
 .navigation a:hover {
-    color: #78594A;
-    text-decoration: underline;
+    background: #78594A;
+    color: #FFFFFF;
+    border-radius: 4px;
+    transform: translateY(-2px);
+}
+
+.navigation a:active {
+    background: #543D32;
+    color: #FFFFFF;
+    transform: translateY(0);
+}
+
+.navigation a:focus-visible {
+    outline: 2px solid #78594A;
+    outline-offset: 2px;
 }
 
 /* 본문 */
@@ -64,12 +86,10 @@ body {
 }
 
 .content h1 {
-    color: #242424;
     font-size: 32px;
     margin-bottom: 20px;
 }
 
-/* 페이지 소개 */
 .introduction {
     color: #4A443C;
     font-size: 17px;
@@ -79,7 +99,7 @@ body {
 
 /* 시 소개 카드 */
 .poem-card {
-    background-color: #E8DDCB;
+    background: #E8DDCB;
     padding: 30px;
     margin-bottom: 25px;
     border-radius: 8px;
@@ -87,39 +107,33 @@ body {
     transition: transform 0.3s ease;
 }
 
-/* 마우스 효과 */
 .poem-card:hover {
     transform: translateY(-4px);
 }
 
-/* 작품 번호 */
 .poem-number {
     color: #78594A;
     font-size: 14px;
     font-weight: bold;
 }
 
-/* 시 제목 */
 .poem-card h2 {
-    color: #242424;
     font-size: 27px;
-    margin-top: 12px;
-    margin-bottom: 15px;
+    margin: 12px 0 15px;
 }
 
-/* 작품 설명 */
 .poem-card p {
     color: #4A443C;
     font-size: 17px;
     line-height: 1.9;
 }
 
-/* 링크 버튼 */
+/* 작품 링크 */
 .poem-link {
     display: inline-block;
     margin-top: 15px;
     padding: 12px 22px;
-    background-color: #78594A;
+    background: #78594A;
     color: #FFFFFF;
     text-decoration: none;
     font-size: 15px;
@@ -127,61 +141,60 @@ body {
 }
 
 .poem-link:hover {
-    background-color: #543D32;
+    background: #543D32;
 }
 
-/* 하단 */
 .copyright {
     text-align: center;
-    color: #242424;
     font-size: 13px;
     margin-top: 30px;
     padding: 20px;
 }
 
-/* 모바일 화면 */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     .page-wrap {
-        width: auto;
-        margin: 15px;
-        padding: 15px;
+        width: 96%;
+        margin: 15px auto;
+        padding: 12px;
+    }
+
+    .navigation {
+        padding: 10px 3px;
+    }
+
+    .navigation a {
+        font-size: clamp(10px, 2.5vw, 15px);
+        padding: 10px 2px;
     }
 
     .content {
         padding: 10px;
     }
 
+    .content h1 {
+        font-size: 26px;
+    }
+
     .poem-card {
         padding: 20px;
     }
 }
-
 </style>
-
 </head>
 
 <body>
-
 <div class="page-wrap">
 
-<!-- 기존 상단 카테고리 유지 -->
-<div class="navigation">
+<nav class="navigation">
+<a href="index.html">윤동주 소개</a>
+<a href="윤동주의 삶.html">삶</a>
+<a href="윤동주의 대표적인 시.html">대표적인 시</a>
+<a href="사진으로 만나는 윤동주.html">사진 갤러리</a>
+</nav>
 
-<a href="index.html">시인 윤동주란 누구인가</a> |
+<main class="content">
 
-<a href="윤동주의 삶.html">시인 윤동주의 삶</a> |
-
-<a href="윤동주의 대표적인 시.html">시인 윤동주의 대표적인 시</a> |
-
-<a href="사진으로 만나는 윤동주.html">사진으로 만나는 시인 윤동주</a>
-
-</div>
-
-<!-- 본문 -->
-<div class="content">
-
-<hr width="80%" align="left"
-style="border:1px solid #78594A;">
+<hr style="width:80%; margin-left:0; border:1px solid #78594A;">
 
 <h1>시인 윤동주의 대표적인 시</h1>
 
@@ -193,13 +206,9 @@ style="border:1px solid #78594A;">
 내용을 확인할 수 있습니다.
 </p>
 
-<!-- 첫 번째 작품 -->
 <div class="poem-card">
-
 <span class="poem-number">POEM 01</span>
-
 <h2>서시</h2>
-
 <p>
 1941년에 쓰인 작품으로,
 자신의 삶을 돌아보며 부끄러움 없는
@@ -207,22 +216,16 @@ style="border:1px solid #78594A;">
 담고 있습니다.
 윤동주의 대표적인 자기 성찰의 시입니다.
 </p>
-
 <a class="poem-link"
 href="https://namu.wiki/w/서시"
 target="_blank" rel="noopener noreferrer">
 서시 자세히 보기 →
 </a>
-
 </div>
 
-<!-- 두 번째 작품 -->
 <div class="poem-card">
-
 <span class="poem-number">POEM 02</span>
-
 <h2>별 헤는 밤</h2>
-
 <p>
 1941년에 쓰인 작품으로,
 밤하늘의 별을 바라보며
@@ -230,22 +233,16 @@ target="_blank" rel="noopener noreferrer">
 감정을 표현한 시입니다.
 서정적인 분위기가 돋보이는 작품입니다.
 </p>
-
 <a class="poem-link"
 href="https://namu.wiki/w/별%20헤는%20밤"
 target="_blank" rel="noopener noreferrer">
 별 헤는 밤 자세히 보기 →
 </a>
-
 </div>
 
-<!-- 세 번째 작품 -->
 <div class="poem-card">
-
 <span class="poem-number">POETRY COLLECTION 03</span>
-
 <h2>하늘과 바람과 별과 시</h2>
-
 <p>
 윤동주 시인이 세상을 떠난 후
 1948년에 출간된 유고 시집입니다.
@@ -253,23 +250,19 @@ target="_blank" rel="noopener noreferrer">
 시대적 아픔, 자기 성찰을 담은
 다양한 작품들이 수록되어 있습니다.
 </p>
-
 <a class="poem-link"
 href="https://namu.wiki/w/하늘과%20바람과%20별과%20시"
 target="_blank" rel="noopener noreferrer">
 시집 자세히 보기 →
 </a>
-
 </div>
 
-</div>
+</main>
 
-<!-- 하단 -->
-<div class="copyright">
-2026-10-13 시인 윤동주에 대하여
-</div>
+<footer class="copyright">
+2026-10-13 산업디자인학과 이태윤
+</footer>
 
 </div>
-
 </body>
 </html>

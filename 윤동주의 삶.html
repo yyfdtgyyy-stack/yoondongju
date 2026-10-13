@@ -1,61 +1,83 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>시인 윤동주의 삶</title>
 
-<link rel="stylesheet" href="style.css">
-
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumBarunGothic.css" rel="stylesheet">
 
 <style>
+* { box-sizing: border-box; }
 
-/* 전체 배경 */
 body {
-    background-color: #E8DDCB;
+    margin: 0;
+    background: #E8DDCB;
     color: #242424;
     font-family: 'Nanum Myeongjo', serif;
-    margin: 0;
-    padding: 0;
 }
 
-/* 전체 페이지 */
 .page-wrap {
     width: 85%;
     max-width: 1100px;
     margin: 40px auto;
-    background-color: #F5F1E8;
     padding: 35px;
+    background: #F5F1E8;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-    box-sizing: border-box;
 }
 
 /* 상단 카테고리 */
 .navigation {
-    text-align: center;
-    padding: 20px;
-    background-color: #E8DDCB;
-    border-radius: 6px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    width: 100%;
+    padding: 15px 8px;
     margin-bottom: 35px;
-    line-height: 2;
+    background: #E8DDCB;
+    border-radius: 6px;
 }
 
 .navigation a {
-    color: #242424;
-    font-size: 16px;
-    font-weight: bold;
+    min-width: 0;
+    padding: 12px 5px;
+    text-align: center;
+    white-space: nowrap;
+    font-family: 'NanumBarunGothic', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #603B2B;
+    background: transparent;
     text-decoration: none;
-    margin: 0 8px;
+    border-right: 1px solid #B49D8B;
+    transition: background-color 0.25s ease,
+                color 0.25s ease,
+                transform 0.2s ease;
+}
+
+.navigation a:last-child {
+    border-right: none;
 }
 
 .navigation a:hover {
-    color: #78594A;
-    text-decoration: underline;
+    background: #78594A;
+    color: white;
+    border-radius: 4px;
+    transform: translateY(-2px);
+}
+
+.navigation a:active {
+    background: #543D32;
+    color: white;
+    transform: translateY(0);
+}
+
+.navigation a:focus-visible {
+    outline: 2px solid #78594A;
+    outline-offset: 2px;
 }
 
 /* 본문 */
@@ -64,12 +86,10 @@ body {
 }
 
 .content h1 {
-    color: #242424;
     font-size: 32px;
     margin-bottom: 10px;
 }
 
-/* 영문 부제목 */
 .subtitle {
     color: #78594A;
     font-size: 15px;
@@ -77,7 +97,6 @@ body {
     letter-spacing: 2px;
 }
 
-/* 소개 문구 */
 .introduction {
     color: #4A443C;
     font-size: 17px;
@@ -85,12 +104,12 @@ body {
     margin: 25px 0 40px;
 }
 
-/* 윤동주 대표 이미지 */
+/* 윤동주 인물 소개 */
 .profile {
     display: flex;
     align-items: center;
     gap: 35px;
-    background-color: #E8DDCB;
+    background: #E8DDCB;
     padding: 25px;
     border-radius: 8px;
     margin-bottom: 55px;
@@ -104,8 +123,11 @@ body {
     border-radius: 5px;
 }
 
+.profile-text {
+    flex: 1;
+}
+
 .profile-text h2 {
-    color: #242424;
     font-size: 27px;
 }
 
@@ -115,14 +137,12 @@ body {
     line-height: 2;
 }
 
-/* 연대표 제목 */
+/* 연대표 */
 .timeline-title {
-    color: #242424;
     font-size: 26px;
     margin-bottom: 35px;
 }
 
-/* 연대표 전체 */
 .timeline {
     position: relative;
     margin-left: 20px;
@@ -130,44 +150,38 @@ body {
     border-left: 3px solid #B9A18E;
 }
 
-/* 연도별 항목 */
 .timeline-item {
     position: relative;
-    margin-bottom: 35px;
-    background-color: #E8DDCB;
+    background: #E8DDCB;
     padding: 25px;
+    margin-bottom: 35px;
     border-radius: 8px;
     border-left: 4px solid #78594A;
 }
 
-/* 타임라인 원형 표시 */
 .timeline-item::before {
     content: "";
     position: absolute;
     left: -48px;
     top: 28px;
-    width: 17px;
-    height: 17px;
-    background-color: #78594A;
+    width: 25px;
+    height: 25px;
+    background: #78594A;
     border: 4px solid #F5F1E8;
     border-radius: 50%;
 }
 
-/* 연도 */
 .timeline-year {
     color: #78594A;
     font-size: 20px;
     font-weight: bold;
 }
 
-/* 항목 제목 */
 .timeline-item h3 {
-    color: #242424;
     font-size: 22px;
     margin: 15px 0;
 }
 
-/* 항목 설명 */
 .timeline-item p {
     color: #4A443C;
     font-size: 16px;
@@ -175,7 +189,6 @@ body {
     margin-bottom: 0;
 }
 
-/* 관련 이미지 */
 .timeline-image {
     width: 100%;
     max-width: 350px;
@@ -185,9 +198,9 @@ body {
     border-radius: 5px;
 }
 
-/* 참고자료 영역 */
+/* 참고자료 */
 .reference {
-    background-color: #E8DDCB;
+    background: #E8DDCB;
     padding: 30px;
     margin-top: 45px;
     border-radius: 8px;
@@ -195,7 +208,6 @@ body {
 }
 
 .reference h2 {
-    color: #242424;
     font-size: 23px;
 }
 
@@ -205,42 +217,50 @@ body {
     line-height: 1.8;
 }
 
-/* 외부 링크 버튼 */
 .reference a {
     display: inline-block;
     margin-top: 15px;
     padding: 13px 25px;
-    background-color: #78594A;
-    color: #FFFFFF;
+    background: #78594A;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
     font-size: 15px;
 }
 
 .reference a:hover {
-    background-color: #543D32;
+    background: #543D32;
 }
 
-/* 하단 */
 .copyright {
     text-align: center;
-    color: #242424;
     font-size: 13px;
-    margin-top: 35px;
+    margin-top: 30px;
     padding: 20px;
 }
 
-/* 모바일 */
 @media (max-width: 700px) {
-
     .page-wrap {
-        width: auto;
-        margin: 15px;
-        padding: 15px;
+        width: 96%;
+        margin: 15px auto;
+        padding: 12px;
+    }
+
+    .navigation {
+        padding: 10px 3px;
+    }
+
+    .navigation a {
+        font-size: clamp(10px, 2.5vw, 15px);
+        padding: 10px 2px;
     }
 
     .content {
         padding: 10px;
+    }
+
+    .content h1 {
+        font-size: 26px;
     }
 
     .profile {
@@ -266,32 +286,22 @@ body {
         left: -38px;
     }
 }
-
 </style>
-
 </head>
 
 <body>
-
 <div class="page-wrap">
 
-<!-- 기존 상단 카테고리 유지 -->
-<div class="navigation">
+<nav class="navigation">
+<a href="index.html">윤동주 소개</a>
+<a href="윤동주의 삶.html">삶</a>
+<a href="윤동주의 대표적인 시.html">대표적인 시</a>
+<a href="사진으로 만나는 윤동주.html">사진 갤러리</a>
+</nav>
 
-<a href="index.html">시인 윤동주란 누구인가</a> |
+<main class="content">
 
-<a href="윤동주의 삶.html">시인 윤동주의 삶</a> |
-
-<a href="윤동주의 대표적인 시.html">시인 윤동주의 대표적인 시</a> |
-
-<a href="사진으로 만나는 윤동주.html">사진으로 만나는 시인 윤동주</a>
-
-</div>
-
-<div class="content">
-
-<hr width="80%" align="left"
-style="border:1px solid #78594A;">
+<hr style="width:80%; margin-left:0; border:1px solid #78594A;">
 
 <h1>시인 윤동주의 삶</h1>
 
@@ -308,20 +318,12 @@ THE LIFE OF YOON DONG JU · 1917 - 1945
 그의 삶을 시간의 흐름에 따라 살펴보겠습니다.
 </p>
 
-<!-- 윤동주 대표 사진 -->
 <div class="profile">
-
-<img src="image/images1.jfif"
-alt="윤동주 시인의 사진">
+<img src="image/images1.jfif" alt="윤동주 시인의 사진">
 
 <div class="profile-text">
-
 <h2>윤동주 (尹東柱)</h2>
-
-<p>
-1917년 12월 30일 ~ 1945년 2월 16일
-</p>
-
+<p>1917년 12월 30일 ~ 1945년 2월 16일</p>
 <p>
 일제강점기에 활동한 한국의 시인이자
 독립운동가입니다.
@@ -330,25 +332,16 @@ alt="윤동주 시인의 사진">
 오늘날까지 한국 문학을 대표하는
 시인으로 기억되고 있습니다.
 </p>
-
+</div>
 </div>
 
-</div>
-
-<!-- 연대표 -->
-<h2 class="timeline-title">
-윤동주의 생애 연대표
-</h2>
+<h2 class="timeline-title">윤동주의 생애 연대표</h2>
 
 <div class="timeline">
 
-<!-- 1917 -->
 <div class="timeline-item">
-
 <span class="timeline-year">1917년</span>
-
 <h3>01. 북간도에서의 탄생</h3>
-
 <p>
 윤동주는 1917년 12월 30일
 북간도 명동촌에서 태어났습니다.
@@ -357,16 +350,11 @@ alt="윤동주 시인의 사진">
 이러한 경험은 훗날 그의 문학적
 감수성을 형성하는 바탕이 되었습니다.
 </p>
-
 </div>
 
-<!-- 학창 시절 -->
 <div class="timeline-item">
-
 <span class="timeline-year">1931년 ~ 1938년</span>
-
 <h3>02. 학창 시절과 문학의 시작</h3>
-
 <p>
 윤동주는 명동소학교를 거쳐
 은진중학교와 숭실중학교 등에서
@@ -376,16 +364,11 @@ alt="윤동주 시인의 사진">
 자신의 생각과 감정을 문학으로
 표현하는 능력을 키워 나갔습니다.
 </p>
-
 </div>
 
-<!-- 연희전문학교 -->
 <div class="timeline-item">
-
 <span class="timeline-year">1938년 ~ 1941년</span>
-
 <h3>03. 연희전문학교와 시인으로의 성장</h3>
-
 <p>
 1938년 연희전문학교 문과에 입학한
 윤동주는 문학에 대한 열정을
@@ -400,16 +383,11 @@ alt="윤동주 시인의 사진">
 제목의 시집을 준비했으나,
 생전에는 출간하지 못했습니다.
 </p>
-
 </div>
 
-<!-- 일본 유학 -->
 <div class="timeline-item">
-
 <span class="timeline-year">1942년 ~ 1943년</span>
-
 <h3>04. 일본 유학과 체포</h3>
-
 <p>
 윤동주는 1942년 일본으로 유학을 떠나
 릿쿄대학교에 입학했으며,
@@ -421,16 +399,11 @@ alt="윤동주 시인의 사진">
 이 사건으로 윤동주의 학업과
 문학 활동은 중단되었습니다.
 </p>
-
 </div>
 
-<!-- 수감 -->
 <div class="timeline-item">
-
 <span class="timeline-year">1943년 ~ 1945년</span>
-
 <h3>05. 체포와 수감 생활</h3>
-
 <p>
 체포된 윤동주는 일본 당국의
 재판을 거쳐 징역형을 선고받았습니다.
@@ -441,16 +414,11 @@ alt="윤동주 시인의 사진">
 사회적 상황은 그의 삶에
 깊은 영향을 미쳤습니다.
 </p>
-
 </div>
 
-<!-- 사망 -->
 <div class="timeline-item">
-
 <span class="timeline-year">1945년</span>
-
 <h3>06. 윤동주의 죽음</h3>
-
 <p>
 윤동주는 1945년 2월 16일
 일본 후쿠오카 형무소에서
@@ -462,16 +430,11 @@ alt="윤동주 시인의 사진">
 정확한 사망 경위에 대해서는
 여전히 의문과 논의가 남아 있습니다.
 </p>
-
 </div>
 
-<!-- 사후 -->
 <div class="timeline-item">
-
 <span class="timeline-year">1948년 이후</span>
-
 <h3>07. 사후에 남겨진 문학적 유산</h3>
-
 <p>
 윤동주가 세상을 떠난 후
 1948년 유고 시집
@@ -492,38 +455,29 @@ alt="윤동주 시인의 사진">
 <img class="timeline-image"
 src="image/images3.jfif"
 alt="윤동주 관련 문학 이미지">
-
 </div>
 
 </div>
 
-<!-- 참고자료 -->
 <div class="reference">
-
 <h2>윤동주의 삶 더 알아보기</h2>
-
 <p>
 윤동주 시인의 생애와 문학 활동에 대해
 더 자세히 알아보고 싶다면
 아래 버튼을 클릭해 주세요.
 </p>
-
 <a href="https://namu.wiki/w/윤동주"
-target="_blank"
-rel="noopener noreferrer">
+target="_blank" rel="noopener noreferrer">
 윤동주 나무위키 자세히 보기 →
 </a>
-
 </div>
 
-</div>
+</main>
 
-<!-- 하단 -->
-<div class="copyright">
-2026-10-13 시인 윤동주에 대하여
-</div>
+<footer class="copyright">
+2026-10-13 산업디자인학과 이태윤
+</footer>
 
 </div>
-
 </body>
 </html>
