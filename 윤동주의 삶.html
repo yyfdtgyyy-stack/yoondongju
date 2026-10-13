@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>시인 윤동주의 삶</title>
+<title>시인 윤동주의 대표적인 시</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/gh/webfontworld/naver/NanumBarunGothic.css" rel="stylesheet">
@@ -64,14 +64,14 @@ body {
 
 .navigation a:hover {
     background: #78594A;
-    color: white;
+    color: #FFFFFF;
     border-radius: 4px;
     transform: translateY(-2px);
 }
 
 .navigation a:active {
     background: #543D32;
-    color: white;
+    color: #FFFFFF;
     transform: translateY(0);
 }
 
@@ -87,148 +87,60 @@ body {
 
 .content h1 {
     font-size: 32px;
-    margin-bottom: 10px;
-}
-
-.subtitle {
-    color: #78594A;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
 .introduction {
     color: #4A443C;
     font-size: 17px;
     line-height: 2;
-    margin: 25px 0 40px;
-}
-
-/* 윤동주 인물 소개 */
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 35px;
-    background: #E8DDCB;
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 55px;
-}
-
-.profile img {
-    width: 220px;
-    height: 270px;
-    object-fit: cover;
-    object-position: center 20%;
-    border-radius: 5px;
-}
-
-.profile-text {
-    flex: 1;
-}
-
-.profile-text h2 {
-    font-size: 27px;
-}
-
-.profile-text p {
-    color: #4A443C;
-    font-size: 17px;
-    line-height: 2;
-}
-
-/* 연대표 */
-.timeline-title {
-    font-size: 26px;
     margin-bottom: 35px;
 }
 
-.timeline {
-    position: relative;
-    margin-left: 20px;
-    padding-left: 35px;
-    border-left: 3px solid #B9A18E;
-}
-
-.timeline-item {
-    position: relative;
+/* 시 소개 카드 */
+.poem-card {
     background: #E8DDCB;
-    padding: 25px;
-    margin-bottom: 35px;
+    padding: 30px;
+    margin-bottom: 25px;
     border-radius: 8px;
-    border-left: 4px solid #78594A;
+    border-left: 5px solid #78594A;
+    transition: transform 0.3s ease;
 }
 
-.timeline-item::before {
-    content: "";
-    position: absolute;
-    left: -48px;
-    top: 28px;
-    width: 25px;
-    height: 25px;
-    background: #78594A;
-    border: 4px solid #F5F1E8;
-    border-radius: 50%;
+.poem-card:hover {
+    transform: translateY(-4px);
 }
 
-.timeline-year {
+.poem-number {
     color: #78594A;
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
 }
 
-.timeline-item h3 {
-    font-size: 22px;
-    margin: 15px 0;
+.poem-card h2 {
+    font-size: 27px;
+    margin: 12px 0 15px;
 }
 
-.timeline-item p {
+.poem-card p {
     color: #4A443C;
-    font-size: 16px;
-    line-height: 2;
-    margin-bottom: 0;
+    font-size: 17px;
+    line-height: 1.9;
 }
 
-.timeline-image {
-    width: 100%;
-    max-width: 350px;
-    max-height: 300px;
-    object-fit: contain;
-    margin-top: 20px;
-    border-radius: 5px;
-}
-
-/* 참고자료 */
-.reference {
-    background: #E8DDCB;
-    padding: 30px;
-    margin-top: 45px;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.reference h2 {
-    font-size: 23px;
-}
-
-.reference p {
-    color: #4A443C;
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-.reference a {
+/* 작품 링크 */
+.poem-link {
     display: inline-block;
     margin-top: 15px;
-    padding: 13px 25px;
+    padding: 12px 22px;
     background: #78594A;
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
-    border-radius: 5px;
     font-size: 15px;
+    border-radius: 5px;
 }
 
-.reference a:hover {
+.poem-link:hover {
     background: #543D32;
 }
 
@@ -263,27 +175,8 @@ body {
         font-size: 26px;
     }
 
-    .profile {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .profile img {
-        width: 190px;
-        height: 240px;
-    }
-
-    .timeline {
-        margin-left: 10px;
-        padding-left: 25px;
-    }
-
-    .timeline-item {
-        padding: 18px;
-    }
-
-    .timeline-item::before {
-        left: -38px;
+    .poem-card {
+        padding: 20px;
     }
 }
 </style>
@@ -303,172 +196,64 @@ body {
 
 <hr style="width:80%; margin-left:0; border:1px solid #78594A;">
 
-<h1>시인 윤동주의 삶</h1>
-
-<p class="subtitle">
-THE LIFE OF YOON DONG JU · 1917 - 1945
-</p>
+<h1>시인 윤동주의 대표적인 시</h1>
 
 <p class="introduction">
-윤동주는 일제강점기라는 암울한 시대 속에서도
-자신의 양심과 신념을 지키고자 했던 시인입니다.
-짧은 생애 동안 수많은 시를 남겼으며,
-그의 작품에는 인간에 대한 사랑과
-시대적 아픔, 자기 성찰이 담겨 있습니다.
-그의 삶을 시간의 흐름에 따라 살펴보겠습니다.
+윤동주 시인은 일제강점기의 시대적 아픔과
+자신의 내면에 대한 성찰을 시로 표현했습니다.
+그의 대표적인 작품들을 소개합니다.
+아래 버튼을 클릭하면 작품에 대한 자세한
+내용을 확인할 수 있습니다.
 </p>
 
-<div class="profile">
-<img src="image/images1.jfif" alt="윤동주 시인의 사진">
-
-<div class="profile-text">
-<h2>윤동주 (尹東柱)</h2>
-<p>1917년 12월 30일 ~ 1945년 2월 16일</p>
+<div class="poem-card">
+<span class="poem-number">POEM 01</span>
+<h2>서시</h2>
 <p>
-일제강점기에 활동한 한국의 시인이자
-독립운동가입니다.
-자신의 내면을 성찰하고 시대의 아픔을
-시로 표현했으며,
-오늘날까지 한국 문학을 대표하는
-시인으로 기억되고 있습니다.
+1941년에 쓰인 작품으로,
+자신의 삶을 돌아보며 부끄러움 없는
+삶을 살아가고자 하는 시인의 의지를
+담고 있습니다.
+윤동주의 대표적인 자기 성찰의 시입니다.
 </p>
-</div>
-</div>
-
-<h2 class="timeline-title">윤동주의 생애 연대표</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<span class="timeline-year">1917년</span>
-<h3>01. 북간도에서의 탄생</h3>
-<p>
-윤동주는 1917년 12월 30일
-북간도 명동촌에서 태어났습니다.
-어린 시절부터 교육과 문화를 중요하게
-생각하는 환경에서 성장했으며,
-이러한 경험은 훗날 그의 문학적
-감수성을 형성하는 바탕이 되었습니다.
-</p>
-</div>
-
-<div class="timeline-item">
-<span class="timeline-year">1931년 ~ 1938년</span>
-<h3>02. 학창 시절과 문학의 시작</h3>
-<p>
-윤동주는 명동소학교를 거쳐
-은진중학교와 숭실중학교 등에서
-학업을 이어갔습니다.
-학창 시절부터 문학에 관심을 보이며
-시를 쓰기 시작했고,
-자신의 생각과 감정을 문학으로
-표현하는 능력을 키워 나갔습니다.
-</p>
-</div>
-
-<div class="timeline-item">
-<span class="timeline-year">1938년 ~ 1941년</span>
-<h3>03. 연희전문학교와 시인으로의 성장</h3>
-<p>
-1938년 연희전문학교 문과에 입학한
-윤동주는 문학에 대한 열정을
-더욱 발전시켰습니다.
-이 시기에 자신의 내면과
-시대적 현실을 성찰하는
-여러 작품을 남겼습니다.
-
-1941년에는 졸업을 앞두고
-자신의 시를 모아
-『하늘과 바람과 별과 시』라는
-제목의 시집을 준비했으나,
-생전에는 출간하지 못했습니다.
-</p>
-</div>
-
-<div class="timeline-item">
-<span class="timeline-year">1942년 ~ 1943년</span>
-<h3>04. 일본 유학과 체포</h3>
-<p>
-윤동주는 1942년 일본으로 유학을 떠나
-릿쿄대학교에 입학했으며,
-이후 도시샤대학교로 옮겨
-학업을 이어갔습니다.
-
-그러나 1943년 일본 경찰에 의해
-독립운동 관련 혐의로 체포되었습니다.
-이 사건으로 윤동주의 학업과
-문학 활동은 중단되었습니다.
-</p>
-</div>
-
-<div class="timeline-item">
-<span class="timeline-year">1943년 ~ 1945년</span>
-<h3>05. 체포와 수감 생활</h3>
-<p>
-체포된 윤동주는 일본 당국의
-재판을 거쳐 징역형을 선고받았습니다.
-이후 후쿠오카 형무소에 수감되어
-힘든 시간을 보냈습니다.
-
-당시의 식민지 지배와 억압적인
-사회적 상황은 그의 삶에
-깊은 영향을 미쳤습니다.
-</p>
-</div>
-
-<div class="timeline-item">
-<span class="timeline-year">1945년</span>
-<h3>06. 윤동주의 죽음</h3>
-<p>
-윤동주는 1945년 2월 16일
-일본 후쿠오카 형무소에서
-27세의 나이로 생을 마감했습니다.
-
-광복을 불과 몇 달 앞둔 시점이었으며,
-그의 이른 죽음은 많은 사람들에게
-안타까움을 남겼습니다.
-정확한 사망 경위에 대해서는
-여전히 의문과 논의가 남아 있습니다.
-</p>
-</div>
-
-<div class="timeline-item">
-<span class="timeline-year">1948년 이후</span>
-<h3>07. 사후에 남겨진 문학적 유산</h3>
-<p>
-윤동주가 세상을 떠난 후
-1948년 유고 시집
-『하늘과 바람과 별과 시』가
-출간되었습니다.
-
-그의 대표적인 작품인
-「서시」, 「별 헤는 밤」,
-「자화상」 등은
-오늘날까지 많은 사람들에게
-사랑받고 있습니다.
-
-윤동주는 짧은 생애를 살았지만
-한국 문학사에 깊은 흔적을 남긴
-시인으로 평가받고 있습니다.
-</p>
-
-<img class="timeline-image"
-src="image/images3.jfif"
-alt="윤동주 관련 문학 이미지">
-</div>
-
-</div>
-
-<div class="reference">
-<h2>윤동주의 삶 더 알아보기</h2>
-<p>
-윤동주 시인의 생애와 문학 활동에 대해
-더 자세히 알아보고 싶다면
-아래 버튼을 클릭해 주세요.
-</p>
-<a href="https://namu.wiki/w/윤동주"
+<a class="poem-link"
+href="https://namu.wiki/w/서시"
 target="_blank" rel="noopener noreferrer">
-윤동주 나무위키 자세히 보기 →
+서시 자세히 보기 →
+</a>
+</div>
+
+<div class="poem-card">
+<span class="poem-number">POEM 02</span>
+<h2>별 헤는 밤</h2>
+<p>
+1941년에 쓰인 작품으로,
+밤하늘의 별을 바라보며
+추억과 그리움, 고향과 사람들에 대한
+감정을 표현한 시입니다.
+서정적인 분위기가 돋보이는 작품입니다.
+</p>
+<a class="poem-link"
+href="https://namu.wiki/w/별%20헤는%20밤"
+target="_blank" rel="noopener noreferrer">
+별 헤는 밤 자세히 보기 →
+</a>
+</div>
+
+<div class="poem-card">
+<span class="poem-number">POETRY COLLECTION 03</span>
+<h2>하늘과 바람과 별과 시</h2>
+<p>
+윤동주 시인이 세상을 떠난 후
+1948년에 출간된 유고 시집입니다.
+윤동주의 순수한 감성과
+시대적 아픔, 자기 성찰을 담은
+다양한 작품들이 수록되어 있습니다.
+</p>
+<a class="poem-link"
+href="https://namu.wiki/w/하늘과%20바람과%20별과%20시"
+target="_blank" rel="noopener noreferrer">
+시집 자세히 보기 →
 </a>
 </div>
 
